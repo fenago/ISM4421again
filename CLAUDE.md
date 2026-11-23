@@ -9,6 +9,8 @@ This repo is for building a **tech-news app on the Hacker News API**, deployed *
 | `docs/expert-roster.md` | The human-readable roster: 27 experts, skills matrix, MVP team |
 | `.claude/agents/*.md` | 29 project subagents (27 roster experts + orchestrator + meta) |
 | `.claude/skills/<name>/SKILL.md` | 33 project skills, preloaded into agents via each agent's `skills:` list |
+| `knowledge/<agent-name>/` | Per-agent knowledge folder. Each agent reads its folder **before every answer**. Drop in project docs to teach that agent |
+| `docs/agent-brains.md` | Each agent's model (opus/sonnet/haiku), why, and its persona (name, voice, working style) |
 | `.claude/team-spec.json` | **Source of truth** for agent ↔ skill wiring (keep it in sync) |
 
 ## How to use the team
@@ -102,7 +104,11 @@ This repo is for building a **tech-news app on the Hacker News API**, deployed *
 - Always attribute HN (link `https://news.ycombinator.com/item?id=<id>`) and the original URL. Don't imply Y Combinator affiliation.
 - This cloud sandbox blocks `hacker-news.firebaseio.com` and `hn.algolia.com`. Use recorded fixtures in tests, or allow-list those hosts in the environment.
 
+## Brains and personas
+Each agent has a `model:` (opus for strategy, legal and finance judgment; sonnet for specialist work; haiku for fast lookups) and a persona with a first name, voice and working style. See `docs/agent-brains.md`.
+
 ## Working rules
 - Develop on feature branches. QA (`qa-test-engineer`) gates merges. A merge to `main` triggers the Netlify production deploy.
 - Never commit secrets. Netlify env vars hold any keys (none are needed for HN/Algolia).
 - Keep `docs/`, `.claude/team-spec.json`, this file and the agent/skill files consistent. `agent-architect` owns that.
+- New agents must get a `knowledge/<name>/README.md`, a persona, a `model:` and the "read knowledge folder first" section. `agent-architect` enforces this.
