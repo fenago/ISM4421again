@@ -41,7 +41,9 @@
   <div id="live-pill" class="live-pill" hidden>
     <button type="button" id="live-refresh"></button>
   </div>
-  <p id="live-status" class="live-status" aria-live="polite"></p>
+  <!-- Visual connection status only; not announced. Only pill counts go to the polite region below. -->
+  <p id="live-status" class="live-status" aria-live="off"></p>
+  <div id="live-announce" class="sr-only" role="status" aria-live="polite"></div>
 
   <main id="main" tabindex="-1">
     <div id="view" aria-busy="true"><p class="muted">Loading…</p></div>

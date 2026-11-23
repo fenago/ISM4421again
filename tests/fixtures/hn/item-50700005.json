@@ -1,0 +1,13 @@
+{
+  "id": 50700005,
+  "type": "poll",
+  "by": "pollster",
+  "time": 1763998500,
+  "title": "Poll: Tabs or spaces?",
+  "score": 77,
+  "descendants": 40,
+  "parts": [
+    50800010,
+    50800011
+  ]
+}

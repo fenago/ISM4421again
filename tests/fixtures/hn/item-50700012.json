@@ -1,0 +1,14 @@
+{
+  "id": 50700012,
+  "type": "story",
+  "by": "mixed",
+  "time": 1763996700,
+  "title": "Link with text body",
+  "url": "https://blog.example.org/post?a=1&b=2",
+  "text": "<p>Author note",
+  "score": 20,
+  "descendants": 2,
+  "brandNewField": {
+    "x": 1
+  }
+}

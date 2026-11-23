@@ -1,0 +1,9 @@
+{
+  "id": 50700013,
+  "type": "story",
+  "by": "bad",
+  "time": 1763996400,
+  "title": "javascript url should be dropped",
+  "url": "javascript:alert(1)",
+  "score": 5
+}

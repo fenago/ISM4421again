@@ -1,0 +1,14 @@
+{
+  "id": 50700001,
+  "type": "story",
+  "by": "pg",
+  "time": 1764000000,
+  "title": "Why Rust &amp; Go: it&#x27;s &quot;fast&quot; &lt;3",
+  "url": "https://www.example.com/rust-go",
+  "score": 512,
+  "descendants": 301,
+  "kids": [
+    50800001,
+    50800002
+  ]
+}

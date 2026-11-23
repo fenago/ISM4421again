@@ -6,6 +6,6 @@
   "description": "Proof of concept: an unofficial, live-updating tech-news reader for Hacker News, deployable to Netlify.",
   "engines": { "node": ">=18" },
   "scripts": {
-    "test": "node --test tests/"
+    "test": "node --test"
   }
 }
