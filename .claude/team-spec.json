@@ -1,0 +1,862 @@
+{
+ "agents": [
+  {
+   "id": "A01",
+   "name": "product-owner",
+   "skills": [
+    "hn-api-knowledge",
+    "git-github-ci",
+    "requirements-acceptance-criteria",
+    "architecture-decision-records",
+    "agile-project-management",
+    "technical-writing",
+    "business-model-pricing",
+    "product-marketing-positioning",
+    "team-orchestration"
+   ],
+   "mvp": true,
+   "title": "Product Owner / Consultant Lead",
+   "job": "Owns the vision, MVP scope, priorities and acceptance criteria, and coordinates all other agents."
+  },
+  {
+   "id": "A02",
+   "name": "project-manager",
+   "skills": [
+    "git-github-ci",
+    "requirements-acceptance-criteria",
+    "agile-project-management"
+   ],
+   "mvp": false,
+   "title": "Project Manager / Scrum Master",
+   "job": "Turns scope into a backlog and sprints, tracks progress, and removes blockers between agents."
+  },
+  {
+   "id": "A03",
+   "name": "tech-news-editor",
+   "skills": [
+    "hn-api-knowledge",
+    "tech-news-taxonomy"
+   ],
+   "mvp": false,
+   "title": "Tech-News Editorial & Curation Expert",
+   "job": "Defines the topic taxonomy, signal thresholds and what \"relevant tech news\" means for the user."
+  },
+  {
+   "id": "A04",
+   "name": "hn-community-expert",
+   "skills": [
+    "hn-api-knowledge",
+    "tech-news-taxonomy",
+    "hn-community-norms",
+    "legal-terms-ip-attribution",
+    "community-management"
+   ],
+   "mvp": false,
+   "title": "Hacker News Community & Ecosystem Expert",
+   "job": "Advises on HN culture, etiquette, ranking behaviour and how to launch to the HN audience without backlash."
+  },
+  {
+   "id": "A05",
+   "name": "ux-researcher",
+   "skills": [
+    "requirements-acceptance-criteria",
+    "ux-research",
+    "web-analytics-experimentation"
+   ],
+   "mvp": false,
+   "title": "UX Researcher",
+   "job": "Interviews target readers, maps reading habits and validates features (feeds, digests, filters)."
+  },
+  {
+   "id": "A06",
+   "name": "solution-architect",
+   "skills": [
+    "hn-api-knowledge",
+    "algolia-hn-search",
+    "realtime-streaming-sse",
+    "typescript-engineering",
+    "frontend-framework",
+    "netlify-platform",
+    "git-github-ci",
+    "caching-performance",
+    "requirements-acceptance-criteria",
+    "architecture-decision-records",
+    "data-modeling-storage",
+    "technical-writing",
+    "finops-cost-modeling"
+   ],
+   "mvp": true,
+   "title": "Solution Architect",
+   "job": "Designs the Netlify-native architecture, data flow, caching and module contracts, and makes the stack decisions."
+  },
+  {
+   "id": "A07",
+   "name": "hn-api-integration-engineer",
+   "skills": [
+    "hn-api-knowledge",
+    "algolia-hn-search",
+    "realtime-streaming-sse",
+    "typescript-engineering",
+    "netlify-platform",
+    "git-github-ci",
+    "caching-performance",
+    "html-sanitization-web-security",
+    "software-testing",
+    "data-modeling-storage"
+   ],
+   "mvp": true,
+   "title": "HN API Integration Engineer",
+   "job": "Builds the HN client (fan-out, retries, normalization, `null`/dead handling), the Scheduled Function feed cache and the Algolia search proxy."
+  },
+  {
+   "id": "A08",
+   "name": "frontend-engineer",
+   "skills": [
+    "hn-api-knowledge",
+    "realtime-streaming-sse",
+    "typescript-engineering",
+    "frontend-framework",
+    "git-github-ci",
+    "html-sanitization-web-security",
+    "software-testing",
+    "ux-research",
+    "ui-design-system",
+    "accessibility-wcag",
+    "seo-content-marketing"
+   ],
+   "mvp": true,
+   "title": "Frontend Engineer",
+   "job": "Builds the responsive UI: feeds, story and comment views, live \"new stories\" updates via EventSource, and safe HTML rendering."
+  },
+  {
+   "id": "A09",
+   "name": "ui-designer",
+   "skills": [
+    "frontend-framework",
+    "ux-research",
+    "ui-design-system",
+    "accessibility-wcag"
+   ],
+   "mvp": false,
+   "title": "UI / Visual Designer",
+   "job": "Creates the design system, layouts, dark/light themes and brand look."
+  },
+  {
+   "id": "A10",
+   "name": "accessibility-specialist",
+   "skills": [
+    "frontend-framework",
+    "ux-research",
+    "ui-design-system",
+    "accessibility-wcag"
+   ],
+   "mvp": false,
+   "title": "Accessibility Specialist",
+   "job": "Ensures WCAG 2.2 AA: keyboard navigation, screen readers, contrast."
+  },
+  {
+   "id": "A11",
+   "name": "search-discovery-engineer",
+   "skills": [
+    "hn-api-knowledge",
+    "algolia-hn-search",
+    "typescript-engineering",
+    "netlify-platform",
+    "caching-performance",
+    "tech-news-taxonomy",
+    "search-ranking-relevance",
+    "llm-nlp-integration"
+   ],
+   "mvp": false,
+   "title": "Search & Discovery Engineer",
+   "job": "Owns Algolia queries, topic feeds, ranking/velocity scoring and rate-limit-aware caching."
+  },
+  {
+   "id": "A12",
+   "name": "data-engineer",
+   "skills": [
+    "hn-api-knowledge",
+    "algolia-hn-search",
+    "typescript-engineering",
+    "architecture-decision-records",
+    "data-modeling-storage",
+    "search-ranking-relevance",
+    "privacy-data-protection"
+   ],
+   "mvp": false,
+   "title": "Data Engineer",
+   "job": "Designs storage (Blobs, Supabase or Postgres), history snapshots, and digest and trend pipelines."
+  },
+  {
+   "id": "A13",
+   "name": "ai-ml-engineer",
+   "skills": [
+    "hn-api-knowledge",
+    "typescript-engineering",
+    "tech-news-taxonomy",
+    "data-modeling-storage",
+    "search-ranking-relevance",
+    "llm-nlp-integration"
+   ],
+   "mvp": false,
+   "title": "AI/ML Engineer",
+   "job": "Builds topic classification and optional LLM summaries of stories and discussions."
+  },
+  {
+   "id": "A14",
+   "name": "performance-realtime-engineer",
+   "skills": [
+    "realtime-streaming-sse",
+    "typescript-engineering",
+    "frontend-framework",
+    "netlify-platform",
+    "caching-performance",
+    "software-testing",
+    "architecture-decision-records",
+    "observability-incident-response"
+   ],
+   "mvp": false,
+   "title": "Performance & Real-time Engineer",
+   "job": "Tunes concurrency, caching TTLs, Core Web Vitals, and stream reconnect/fallback behaviour."
+  },
+  {
+   "id": "A15",
+   "name": "security-engineer",
+   "skills": [
+    "typescript-engineering",
+    "netlify-platform",
+    "html-sanitization-web-security",
+    "software-testing",
+    "architecture-decision-records",
+    "observability-incident-response"
+   ],
+   "mvp": false,
+   "title": "Application Security Engineer",
+   "job": "Covers HTML sanitization/XSS, CSP headers, dependency audits and secrets handling in Netlify."
+  },
+  {
+   "id": "A16",
+   "name": "qa-test-engineer",
+   "skills": [
+    "hn-api-knowledge",
+    "algolia-hn-search",
+    "realtime-streaming-sse",
+    "typescript-engineering",
+    "git-github-ci",
+    "html-sanitization-web-security",
+    "software-testing",
+    "requirements-acceptance-criteria",
+    "accessibility-wcag"
+   ],
+   "mvp": true,
+   "title": "QA / Test Engineer",
+   "job": "Writes the unit, fixture, contract and end-to-end tests covering every edge case in [07](07-gotchas-and-edge-cases.md), and gates releases."
+  },
+  {
+   "id": "A17",
+   "name": "devops-netlify-engineer",
+   "skills": [
+    "netlify-platform",
+    "git-github-ci",
+    "caching-performance",
+    "observability-incident-response",
+    "finops-cost-modeling"
+   ],
+   "mvp": true,
+   "title": "DevOps / Netlify Release Engineer",
+   "job": "Owns the GitHub repo workflow, CI (GitHub Actions), `netlify.toml`, deploy previews, env vars, domains and rollbacks."
+  },
+  {
+   "id": "A18",
+   "name": "sre-monitoring-engineer",
+   "skills": [
+    "netlify-platform",
+    "observability-incident-response"
+   ],
+   "mvp": false,
+   "title": "Site Reliability / Monitoring Engineer",
+   "job": "Sets up uptime checks, function logs, error tracking (e.g. Sentry), alerts and incident runbooks."
+  },
+  {
+   "id": "A19",
+   "name": "technical-writer",
+   "skills": [
+    "git-github-ci",
+    "technical-writing"
+   ],
+   "mvp": false,
+   "title": "Technical Writer",
+   "job": "Maintains the README, setup and run docs, architecture docs and user help pages."
+  },
+  {
+   "id": "A20",
+   "name": "finops-analyst",
+   "skills": [
+    "netlify-platform",
+    "llm-nlp-integration",
+    "finops-cost-modeling",
+    "business-model-pricing"
+   ],
+   "mvp": false,
+   "title": "FinOps / Cost Analyst",
+   "job": "Forecasts and monitors Netlify, Algolia, DB and LLM costs, and sets budgets and usage alerts."
+  },
+  {
+   "id": "A21",
+   "name": "business-model-analyst",
+   "skills": [
+    "finops-cost-modeling",
+    "business-model-pricing"
+   ],
+   "mvp": false,
+   "title": "Business Model & Monetization Analyst",
+   "job": "Evaluates free, freemium, sponsorship or premium-digest models and pricing."
+  },
+  {
+   "id": "A22",
+   "name": "legal-counsel",
+   "skills": [
+    "hn-community-norms",
+    "legal-terms-ip-attribution",
+    "privacy-data-protection"
+   ],
+   "mvp": false,
+   "title": "Legal Counsel: Content, IP & Terms",
+   "job": "Reviews HN/Y Combinator and Algolia usage terms, attribution, trademark (no implied YC affiliation), and drafts the app's Terms of Use."
+  },
+  {
+   "id": "A23",
+   "name": "privacy-compliance-officer",
+   "skills": [
+    "privacy-data-protection"
+   ],
+   "mvp": false,
+   "title": "Privacy & Compliance Officer",
+   "job": "Drafts the privacy policy and cookie/analytics consent, and covers GDPR/CCPA for any accounts or email digests."
+  },
+  {
+   "id": "A24",
+   "name": "product-marketing-strategist",
+   "skills": [
+    "tech-news-taxonomy",
+    "hn-community-norms",
+    "ui-design-system",
+    "business-model-pricing",
+    "product-marketing-positioning",
+    "seo-content-marketing",
+    "community-management"
+   ],
+   "mvp": false,
+   "title": "Product Marketing & Brand Strategist",
+   "job": "Defines positioning, naming, messaging and the launch plan."
+  },
+  {
+   "id": "A25",
+   "name": "growth-analytics-marketer",
+   "skills": [
+    "privacy-data-protection",
+    "web-analytics-experimentation"
+   ],
+   "mvp": false,
+   "title": "Growth & Analytics Marketer",
+   "job": "Sets up privacy-friendly analytics, funnels, retention metrics and A/B tests."
+  },
+  {
+   "id": "A26",
+   "name": "seo-content-marketer",
+   "skills": [
+    "tech-news-taxonomy",
+    "product-marketing-positioning",
+    "web-analytics-experimentation",
+    "seo-content-marketing"
+   ],
+   "mvp": false,
+   "title": "SEO & Content Marketer",
+   "job": "Covers SEO for the Netlify site, landing page copy, blog content and social posts."
+  },
+  {
+   "id": "A27",
+   "name": "community-manager",
+   "skills": [
+    "hn-community-norms",
+    "product-marketing-positioning",
+    "community-management"
+   ],
+   "mvp": false,
+   "title": "Community Manager",
+   "job": "Runs the Show HN launch, user feedback channels and the feature-request loop."
+  },
+  {
+   "id": "X01",
+   "name": "expert-orchestrator",
+   "mvp": true,
+   "title": "Expert Orchestrator",
+   "job": "Takes any question, decides which experts to consult, runs them (in parallel where independent), reconciles their input and returns one combined answer.",
+   "skills": [
+    "team-orchestration",
+    "hn-api-knowledge",
+    "requirements-acceptance-criteria",
+    "architecture-decision-records"
+   ]
+  },
+  {
+   "id": "X02",
+   "name": "agent-architect",
+   "mvp": false,
+   "title": "Agent Architect (meta agent)",
+   "job": "Creates new agents and skills and improves existing ones, keeping the roster, wiring and CLAUDE.md consistent.",
+   "skills": [
+    "agent-skill-authoring",
+    "technical-writing"
+   ]
+  }
+ ],
+ "skills": [
+  {
+   "id": "S01",
+   "name": "hn-api-knowledge",
+   "mvp": true,
+   "title": "HN API Knowledge",
+   "covers": "Endpoints, data model, quirks ([02](02-endpoints.md), [03](03-data-model.md), [07](07-gotchas-and-edge-cases.md))",
+   "used_by": [
+    "product-owner",
+    "tech-news-editor",
+    "hn-community-expert",
+    "solution-architect",
+    "hn-api-integration-engineer",
+    "frontend-engineer",
+    "search-discovery-engineer",
+    "data-engineer",
+    "ai-ml-engineer",
+    "qa-test-engineer",
+    "expert-orchestrator"
+   ]
+  },
+  {
+   "id": "S02",
+   "name": "algolia-hn-search",
+   "mvp": true,
+   "title": "Algolia HN Search",
+   "covers": "Query syntax, tags, numeric filters, rate limits ([06](06-algolia-search-api.md))",
+   "used_by": [
+    "solution-architect",
+    "hn-api-integration-engineer",
+    "search-discovery-engineer",
+    "data-engineer",
+    "qa-test-engineer"
+   ]
+  },
+  {
+   "id": "S03",
+   "name": "realtime-streaming-sse",
+   "mvp": true,
+   "title": "Real-time Streaming (SSE / EventSource)",
+   "covers": "Firebase put/patch events, reconnects, polling fallback ([04](04-realtime-updates.md))",
+   "used_by": [
+    "solution-architect",
+    "hn-api-integration-engineer",
+    "frontend-engineer",
+    "performance-realtime-engineer",
+    "qa-test-engineer"
+   ]
+  },
+  {
+   "id": "S04",
+   "name": "typescript-engineering",
+   "mvp": true,
+   "title": "TypeScript / JavaScript Engineering",
+   "covers": "Typed clients, async concurrency, error handling",
+   "used_by": [
+    "solution-architect",
+    "hn-api-integration-engineer",
+    "frontend-engineer",
+    "search-discovery-engineer",
+    "data-engineer",
+    "ai-ml-engineer",
+    "performance-realtime-engineer",
+    "security-engineer",
+    "qa-test-engineer"
+   ]
+  },
+  {
+   "id": "S05",
+   "name": "frontend-framework",
+   "mvp": true,
+   "title": "Frontend Framework (React / Next.js or SvelteKit)",
+   "covers": "Components, routing, state, SSR/SSG on Netlify",
+   "used_by": [
+    "solution-architect",
+    "frontend-engineer",
+    "ui-designer",
+    "accessibility-specialist",
+    "performance-realtime-engineer"
+   ]
+  },
+  {
+   "id": "S06",
+   "name": "netlify-platform",
+   "mvp": true,
+   "title": "Netlify Platform",
+   "covers": "`netlify.toml`, Functions, Scheduled Functions, Blobs, Edge, env vars, deploy previews, redirects/headers",
+   "used_by": [
+    "solution-architect",
+    "hn-api-integration-engineer",
+    "search-discovery-engineer",
+    "performance-realtime-engineer",
+    "security-engineer",
+    "devops-netlify-engineer",
+    "sre-monitoring-engineer",
+    "finops-analyst"
+   ]
+  },
+  {
+   "id": "S07",
+   "name": "git-github-ci",
+   "mvp": true,
+   "title": "Git / GitHub Workflow & CI",
+   "covers": "Branching, PRs, GitHub Actions, protected `main`",
+   "used_by": [
+    "product-owner",
+    "project-manager",
+    "solution-architect",
+    "hn-api-integration-engineer",
+    "frontend-engineer",
+    "qa-test-engineer",
+    "devops-netlify-engineer",
+    "technical-writer"
+   ]
+  },
+  {
+   "id": "S08",
+   "name": "caching-performance",
+   "mvp": true,
+   "title": "Caching & Performance",
+   "covers": "TTLs, fan-out limits, CDN caching, Core Web Vitals ([05](05-fetching-patterns.md))",
+   "used_by": [
+    "solution-architect",
+    "hn-api-integration-engineer",
+    "search-discovery-engineer",
+    "performance-realtime-engineer",
+    "devops-netlify-engineer"
+   ]
+  },
+  {
+   "id": "S09",
+   "name": "html-sanitization-web-security",
+   "mvp": true,
+   "title": "HTML Sanitization & Web Security",
+   "covers": "DOMPurify, entity decoding, CSP, XSS, dependency audit",
+   "used_by": [
+    "hn-api-integration-engineer",
+    "frontend-engineer",
+    "security-engineer",
+    "qa-test-engineer"
+   ]
+  },
+  {
+   "id": "S10",
+   "name": "software-testing",
+   "mvp": true,
+   "title": "Software Testing",
+   "covers": "Vitest/Jest, recorded fixtures, contract tests, Playwright E2E",
+   "used_by": [
+    "hn-api-integration-engineer",
+    "frontend-engineer",
+    "performance-realtime-engineer",
+    "security-engineer",
+    "qa-test-engineer"
+   ]
+  },
+  {
+   "id": "S11",
+   "name": "requirements-acceptance-criteria",
+   "mvp": true,
+   "title": "Requirements & Acceptance Criteria",
+   "covers": "User stories, MVP scoping, definition of done ([09](09-agent-team-briefing.md))",
+   "used_by": [
+    "product-owner",
+    "project-manager",
+    "ux-researcher",
+    "solution-architect",
+    "qa-test-engineer",
+    "expert-orchestrator"
+   ]
+  },
+  {
+   "id": "S12",
+   "name": "architecture-decision-records",
+   "mvp": true,
+   "title": "Architecture & Technical Decision Records",
+   "covers": "Diagrams, trade-offs, decision logs ([08](08-app-architecture.md))",
+   "used_by": [
+    "product-owner",
+    "solution-architect",
+    "data-engineer",
+    "performance-realtime-engineer",
+    "security-engineer",
+    "expert-orchestrator"
+   ]
+  },
+  {
+   "id": "S13",
+   "name": "agile-project-management",
+   "mvp": false,
+   "title": "Project Management / Agile",
+   "covers": "Backlog, sprint planning, status reporting",
+   "used_by": [
+    "product-owner",
+    "project-manager"
+   ]
+  },
+  {
+   "id": "S14",
+   "name": "tech-news-taxonomy",
+   "mvp": false,
+   "title": "Tech-News Domain & Topic Taxonomy",
+   "covers": "Topics, keyword/domain rules, editorial judgement",
+   "used_by": [
+    "tech-news-editor",
+    "hn-community-expert",
+    "search-discovery-engineer",
+    "ai-ml-engineer",
+    "product-marketing-strategist",
+    "seo-content-marketer"
+   ]
+  },
+  {
+   "id": "S15",
+   "name": "hn-community-norms",
+   "mvp": false,
+   "title": "HN Community Norms",
+   "covers": "Show HN guidelines, etiquette, attribution",
+   "used_by": [
+    "hn-community-expert",
+    "legal-counsel",
+    "product-marketing-strategist",
+    "community-manager"
+   ]
+  },
+  {
+   "id": "S16",
+   "name": "ux-research",
+   "mvp": false,
+   "title": "UX Research & Usability Testing",
+   "covers": "Interviews, personas, usability studies",
+   "used_by": [
+    "ux-researcher",
+    "frontend-engineer",
+    "ui-designer",
+    "accessibility-specialist"
+   ]
+  },
+  {
+   "id": "S17",
+   "name": "ui-design-system",
+   "mvp": false,
+   "title": "UI / Visual Design & Design Systems",
+   "covers": "Typography, color tokens, themes, responsive layout",
+   "used_by": [
+    "frontend-engineer",
+    "ui-designer",
+    "accessibility-specialist",
+    "product-marketing-strategist"
+   ]
+  },
+  {
+   "id": "S18",
+   "name": "accessibility-wcag",
+   "mvp": false,
+   "title": "Accessibility (WCAG 2.2)",
+   "covers": "ARIA, keyboard navigation, contrast, screen-reader testing",
+   "used_by": [
+    "frontend-engineer",
+    "ui-designer",
+    "accessibility-specialist",
+    "qa-test-engineer"
+   ]
+  },
+  {
+   "id": "S19",
+   "name": "data-modeling-storage",
+   "mvp": false,
+   "title": "Data Modeling & Storage",
+   "covers": "SQL/Postgres/Supabase, Netlify Blobs, snapshots, migrations",
+   "used_by": [
+    "solution-architect",
+    "hn-api-integration-engineer",
+    "data-engineer",
+    "ai-ml-engineer"
+   ]
+  },
+  {
+   "id": "S20",
+   "name": "search-ranking-relevance",
+   "mvp": false,
+   "title": "Search Ranking & Relevance",
+   "covers": "Velocity scoring, personalization, query tuning",
+   "used_by": [
+    "search-discovery-engineer",
+    "data-engineer",
+    "ai-ml-engineer"
+   ]
+  },
+  {
+   "id": "S21",
+   "name": "llm-nlp-integration",
+   "mvp": false,
+   "title": "LLM / NLP Integration",
+   "covers": "Classification, summarization, prompt design, cost control",
+   "used_by": [
+    "search-discovery-engineer",
+    "ai-ml-engineer",
+    "finops-analyst"
+   ]
+  },
+  {
+   "id": "S22",
+   "name": "observability-incident-response",
+   "mvp": false,
+   "title": "Observability & Incident Response",
+   "covers": "Logs, Sentry, uptime, alerts, runbooks",
+   "used_by": [
+    "performance-realtime-engineer",
+    "security-engineer",
+    "devops-netlify-engineer",
+    "sre-monitoring-engineer"
+   ]
+  },
+  {
+   "id": "S23",
+   "name": "technical-writing",
+   "mvp": false,
+   "title": "Technical Writing",
+   "covers": "README, API docs, user guides",
+   "used_by": [
+    "product-owner",
+    "solution-architect",
+    "technical-writer",
+    "agent-architect"
+   ]
+  },
+  {
+   "id": "S24",
+   "name": "finops-cost-modeling",
+   "mvp": false,
+   "title": "Cost Modeling & FinOps",
+   "covers": "Usage forecasting, plan limits, budgets",
+   "used_by": [
+    "solution-architect",
+    "devops-netlify-engineer",
+    "finops-analyst",
+    "business-model-analyst"
+   ]
+  },
+  {
+   "id": "S25",
+   "name": "business-model-pricing",
+   "mvp": false,
+   "title": "Business Modeling & Pricing",
+   "covers": "Revenue models, unit economics",
+   "used_by": [
+    "product-owner",
+    "finops-analyst",
+    "business-model-analyst",
+    "product-marketing-strategist"
+   ]
+  },
+  {
+   "id": "S26",
+   "name": "legal-terms-ip-attribution",
+   "mvp": false,
+   "title": "Legal: Terms, IP & Attribution",
+   "covers": "ToS review, trademark, content licensing",
+   "used_by": [
+    "hn-community-expert",
+    "legal-counsel"
+   ]
+  },
+  {
+   "id": "S27",
+   "name": "privacy-data-protection",
+   "mvp": false,
+   "title": "Privacy & Data Protection",
+   "covers": "GDPR/CCPA, consent, privacy policy, data retention",
+   "used_by": [
+    "data-engineer",
+    "legal-counsel",
+    "privacy-compliance-officer",
+    "growth-analytics-marketer"
+   ]
+  },
+  {
+   "id": "S28",
+   "name": "product-marketing-positioning",
+   "mvp": false,
+   "title": "Product Marketing & Positioning",
+   "covers": "Messaging, naming, launch plans",
+   "used_by": [
+    "product-owner",
+    "product-marketing-strategist",
+    "seo-content-marketer",
+    "community-manager"
+   ]
+  },
+  {
+   "id": "S29",
+   "name": "web-analytics-experimentation",
+   "mvp": false,
+   "title": "Web Analytics & Experimentation",
+   "covers": "Privacy-friendly analytics, funnels, A/B tests",
+   "used_by": [
+    "ux-researcher",
+    "growth-analytics-marketer",
+    "seo-content-marketer"
+   ]
+  },
+  {
+   "id": "S30",
+   "name": "seo-content-marketing",
+   "mvp": false,
+   "title": "SEO & Content Marketing",
+   "covers": "Meta tags, sitemaps, Open Graph, content calendar",
+   "used_by": [
+    "frontend-engineer",
+    "product-marketing-strategist",
+    "seo-content-marketer"
+   ]
+  },
+  {
+   "id": "S31",
+   "name": "community-management",
+   "mvp": false,
+   "title": "Community Management",
+   "covers": "Launch posts, feedback triage, moderation",
+   "used_by": [
+    "hn-community-expert",
+    "product-marketing-strategist",
+    "community-manager"
+   ]
+  },
+  {
+   "id": "S32",
+   "name": "team-orchestration",
+   "mvp": true,
+   "title": "Expert Team Orchestration",
+   "covers": "Routing a question to the right experts, running them in parallel/sequence, reconciling conflicts, synthesizing one answer",
+   "used_by": [
+    "expert-orchestrator",
+    "product-owner"
+   ]
+  },
+  {
+   "id": "S33",
+   "name": "agent-skill-authoring",
+   "mvp": false,
+   "title": "Agent & Skill Authoring",
+   "covers": "Claude Code subagent and SKILL.md formats, frontmatter, wiring skills to agents, keeping roster/CLAUDE.md in sync",
+   "used_by": [
+    "agent-architect"
+   ]
+  }
+ ]
+}
