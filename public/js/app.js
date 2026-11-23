@@ -155,7 +155,7 @@ async function loadMore() {
   try {
     const res = await l.load(l.page + 1);
     if (list !== l) return;                       // user navigated away
-    l.page += 1; l.hasMore = res.hasMore;
+    l.page += 1; l.hasMore = res.hasMore && l.page < MAX_PAGE;
     const have = new Set(l.stories.map((s) => s.id));
     const added = res.stories.filter((s) => !have.has(s.id));
     l.stories.push(...added);
