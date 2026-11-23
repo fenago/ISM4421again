@@ -133,7 +133,8 @@ export function classify(item) {
   if (/^Ask HN:/i.test(t)) return "ask";
   if (/^Launch HN:/i.test(t)) return "launch";
   if (/^Tell HN:/i.test(t)) return "tell";
-  return item.url ? "link" : "ask";
+  // A story that HAD a url is a link even if we later reject that url as unsafe (e.g. javascript:).
+  return typeof item.url === "string" && item.url.trim() ? "link" : "ask";
 }
 
 /** @param {string} [url] @returns {string|undefined} hostname without leading www. */
@@ -166,7 +167,7 @@ export function normalize(item, rank) {
   const url = cleanUrl(item.url);
   return {
     id: item.id,
-    kind: classify({ ...item, url }),
+    kind: classify(item),
     title: decodeEntities(item.title),
     url,
     domain: domainOf(url),
