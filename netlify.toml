@@ -1,12 +1,21 @@
-# Proof of concept: static site + one Netlify Function. No build step, no dependencies.
+# Proof of concept: static site in public/ + one Netlify Function (Functions v2).
+# No build step and no npm dependencies, so no [build].command is set.
+# No environment variables or secrets are required (HN and Algolia are public).
+
 [build]
   publish = "public"
   functions = "netlify/functions"
-  command = ""
+
+[build.environment]
+  NODE_VERSION = "20"
 
 [functions]
   node_bundler = "esbuild"
 
+# The function declares its own route via config.path ("/api/feed/:name"),
+# so no /api/* redirect is needed.
+
+# Security headers on every static response.
 [[headers]]
   for = "/*"
   [headers.values]
@@ -14,3 +23,25 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Assets are not fingerprinted, so keep browser caching short and always
+# revalidate. Netlify's CDN is purged on every deploy.
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
