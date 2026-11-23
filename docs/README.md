@@ -27,6 +27,7 @@ _Research date: 2026-11-23. Live endpoints were spot-checked on that date (see [
 | 08 | [08-app-architecture.md](08-app-architecture.md) | Recommended architecture, features, "tech news" filtering, stack options | Architect / product agents |
 | 09 | [09-agent-team-briefing.md](09-agent-team-briefing.md) | Proposed agent roles, conventions, open decisions, acceptance criteria | Orchestrator / all agents |
 | 10 | [10-sources.md](10-sources.md) | Sources and live verification log | Everyone |
+| — | [how-to-talk-to-your-experts.md](how-to-talk-to-your-experts.md) | How to ask one expert or the whole team, with example multi-agent prompts | Everyone |
 | — | [expert-roster.md](expert-roster.md) | 27 expert agent roles (⭐ 6-agent MVP team), shared skills matrix, GitHub → Netlify path | Consultant / orchestrator |
 
 ## Quick start (copy-paste)
