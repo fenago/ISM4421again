@@ -1,0 +1,16 @@
+# Proof of concept: static site + one Netlify Function. No build step, no dependencies.
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+  command = ""
+
+[functions]
+  node_bundler = "esbuild"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://hacker-news.firebaseio.com https://*.firebaseio.com https://hn.algolia.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"

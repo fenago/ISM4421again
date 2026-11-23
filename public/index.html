@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tech News Radar</title>
+  <meta name="description" content="An unofficial, live-updating reader for Hacker News tech news.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/js/app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="topbar">
+    <div class="brand">
+      <a href="#/top" class="logo" aria-label="Tech News Radar home">
+        <span class="logo-mark" aria-hidden="true">◎</span>
+        <span>Tech News Radar</span>
+      </a>
+      <span class="tagline">an unofficial reader for Hacker News · proof of concept</span>
+    </div>
+    <form class="search" id="search-form" role="search">
+      <label for="q" class="sr-only">Search stories</label>
+      <input id="q" name="q" type="search" placeholder="Search tech news…" autocomplete="off">
+      <button type="submit">Search</button>
+    </form>
+  </header>
+
+  <nav class="tabs" aria-label="Feeds">
+    <a href="#/top" data-feed="top">Top</a>
+    <a href="#/new" data-feed="new">New</a>
+    <a href="#/best" data-feed="best">Best</a>
+    <a href="#/ask" data-feed="ask">Ask</a>
+    <a href="#/show" data-feed="show">Show</a>
+    <a href="#/job" data-feed="job">Jobs</a>
+  </nav>
+
+  <div class="topics" id="topics" role="group" aria-label="Filter by topic"></div>
+
+  <div id="live-pill" class="live-pill" hidden>
+    <button type="button" id="live-refresh"></button>
+  </div>
+  <p id="live-status" class="live-status" aria-live="polite"></p>
+
+  <main id="main" tabindex="-1">
+    <div id="view" aria-busy="true"><p class="muted">Loading…</p></div>
+  </main>
+
+  <footer class="footer">
+    <p>Tech News Radar is an independent, unofficial reader. Data from
+      <a href="https://news.ycombinator.com/" rel="noopener">Hacker News</a> via the
+      <a href="https://github.com/HackerNews/API" rel="noopener">official API</a>; search by
+      <a href="https://hn.algolia.com/" rel="noopener">HN Search powered by Algolia</a>.
+      Not affiliated with or endorsed by Y Combinator or Hacker News.</p>
+  </footer>
+</body>
+</html>

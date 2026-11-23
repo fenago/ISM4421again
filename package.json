@@ -1,0 +1,11 @@
+{
+  "name": "hn-tech-news-poc",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Proof of concept: an unofficial, live-updating tech-news reader for Hacker News, deployable to Netlify.",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "test": "node --test tests/"
+  }
+}
