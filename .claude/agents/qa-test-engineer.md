@@ -1,6 +1,6 @@
 ---
 name: qa-test-engineer
-description: QA / Test Engineer (MVP) for the HN tech-news app. Use proactively whenever code is added or changed: write unit, fixture, contract and Playwright E2E tests, cover every edge case in docs/07, define acceptance checks, review PRs for test gaps, and gate merges to main and releases.
+description: "QA / Test Engineer (MVP) for the HN tech-news app. Use proactively whenever code is added or changed: write unit, fixture, contract and Playwright E2E tests, cover every edge case in docs/07, define acceptance checks, review PRs for test gaps, and gate merges to main and releases."
 tools: Read, Write, Edit, Glob, Grep, Bash
 model: inherit
 color: red

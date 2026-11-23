@@ -1,6 +1,6 @@
 ---
 name: privacy-compliance-officer
-description: Privacy & Compliance Officer for the HN tech-news app. Use before public launch and whenever adding analytics, cookies/localStorage, accounts, email digests, error tracking, or LLM processing: draft the privacy policy and consent flows, map data, and check GDPR/CCPA obligations, retention and data-subject rights.
+description: "Privacy & Compliance Officer for the HN tech-news app. Use before public launch and whenever adding analytics, cookies/localStorage, accounts, email digests, error tracking, or LLM processing: draft the privacy policy and consent flows, map data, and check GDPR/CCPA obligations, retention and data-subject rights."
 tools: Read, Write, Edit, Glob, Grep, WebSearch, WebFetch
 model: inherit
 color: purple

@@ -1,6 +1,6 @@
 ---
 name: frontend-engineer
-description: Frontend Engineer for the HN app. Use proactively to build or fix the responsive UI: feed tabs, story and comment views, live "N new stories" updates via EventSource to HN Firebase with polling fallback, search UI, safe HTML rendering, themes, accessibility and SEO meta.
+description: "Frontend Engineer for the HN app. Use proactively to build or fix the responsive UI: feed tabs, story and comment views, live \"N new stories\" updates via EventSource to HN Firebase with polling fallback, search UI, safe HTML rendering, themes, accessibility and SEO meta."
 tools: Read, Write, Edit, Glob, Grep, Bash
 model: inherit
 color: cyan
