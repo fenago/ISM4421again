@@ -256,7 +256,8 @@ describe("fetchFeed", () => {
     await assert.rejects(fetchFeed("top", 1.5), /Invalid page/);
   });
   test("deadline: overall budget is enforced", async () => {
-    globalThis.fetch = makeFetchStub(state, { onHn: () => new Promise(() => {}) }); // hangs forever
+    // hangs until aborted, like a real fetch honouring its AbortSignal
+    globalThis.fetch = (u, { signal }) => new Promise((_, rej) => signal.addEventListener("abort", () => rej(new DOMException("aborted", "AbortError"))));
     const t0 = Date.now();
     await assert.rejects(fetchFeed("top", 0, { deadlineMs: 150 }));
     assert.ok(Date.now() - t0 < 2000, "did not hang");
@@ -300,8 +301,6 @@ describe("Function: /api/feed/:name", () => {
       ["top", "?page=17"], ["top", "?page=1.5"], ["top", "?page="], ["top", "?page=%20"], ["top", "?page=0001"], ["top", "?page=1e1"]];
     for (const [name, qs] of bad) {
       const res = await call(name, qs);
-      // "0001" matches /^\d{1,3}$/ -> 1 is valid; that's acceptable, handled below
-      if (qs === "?page=0001") { assert.equal(res.status, 200); continue; }
       assert.equal(res.status, 400, `${name}${qs}`);
       assert.equal(res.headers.get("cache-control"), "no-store");
       assert.equal(res.headers.get("netlify-cdn-cache-control"), null);

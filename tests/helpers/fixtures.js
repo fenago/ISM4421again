@@ -33,7 +33,7 @@ export function hnLookup(state, url) {
   const m = u.pathname.match(/^\/v0\/(.+)\.json$/);
   if (!m) return { status: 404, body: null };            // missing ".json" suffix => not JSON
   const key = m[1];
-  if (state.lists[key]) return { status: 200, body: state.lists[key] };
+  if (key in state.lists) return { status: 200, body: state.lists[key] };
   const im = key.match(/^item\/(\d+)$/);
   if (im) {
     const id = Number(im[1]);
