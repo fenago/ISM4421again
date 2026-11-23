@@ -41,6 +41,7 @@ function setProse(node, html) { node.innerHTML = sanitizeHtml(html); }
 function setTitle(t) { document.title = t ? `${t} · Tech News Radar` : "Tech News Radar"; }
 
 // ---------- router ----------
+let firstRoute = true; // initial page load must NOT steal focus: keyboard users start at the skip link / header
 let navToken = 0;     // incremented per navigation; stale async work checks it and bails
 
 function parseHash() {
@@ -80,7 +81,8 @@ async function route() {
     if (a.dataset.feed === feed) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
   });
   window.scrollTo(0, 0);
-  main.focus({ preventScroll: true });
+  if (!firstRoute) main.focus({ preventScroll: true });   // client-side navigation: move focus to the new content
+  firstRoute = false;
   if (feed) startLive(feed);
 }
 
@@ -203,7 +205,7 @@ async function showFeed(feed, isCurrent, markNew = new Set()) {
   setTitle(FEED_LABELS[feed]);
   list = {
     kind: "feed", feed, title: `${FEED_LABELS[feed]} stories`, page: 0, hasMore: data.hasMore,
-    stories: data.stories, newIds: markNew, load: (p) => loadFeedPage(feed, p),
+    stories: data.stories, pageIds: data.ids || [], newIds: markNew, load: (p) => loadFeedPage(feed, p),
     headerNode: el("h1", { class: "sr-only", text: `${FEED_LABELS[feed]} stories` }),
   };
   renderList();
@@ -279,7 +281,7 @@ function startPolling() {
     try {
       const data = await loadFeedPage(feed, 0);
       if (gen !== live.gen) return;
-      live.ids = data.stories.map((s) => s.id);
+      live.ids = data.ids || data.stories.map((s) => s.id);
       scheduleLiveUpdate();
     } catch (err) { console.error(err); }
   };
@@ -293,9 +295,12 @@ function scheduleLiveUpdate() {
   live.updateTimer = setTimeout(() => { live.updateTimer = null; updatePill(); }, 2000);
 }
 
+// Ids the user already has: rendered stories PLUS ids the server dropped (dead/deleted/null), which must not count as "new".
+function seenIds() { return new Set([...(list.pageIds || []), ...list.stories.map((s) => s.id)]); }
+
 function updatePill() {
   if (!list || list.feed !== live.feed) return;
-  const shown = new Set(list.stories.map((s) => s.id));
+  const shown = seenIds();
   const count = live.ids.slice(0, PAGE_SIZE).filter((id) => !shown.has(id)).length;
   if (count === live.lastCount) return;                    // nothing changed: no DOM churn, no announcement
   live.lastCount = count;
@@ -310,7 +315,7 @@ function hidePill() { pill.hidden = true; announceEl.textContent = ""; live.last
 pillBtn.addEventListener("click", async () => {
   if (!list || list.kind !== "feed") return;
   const feed = list.feed, token = navToken;
-  const shown = new Set(list.stories.map((s) => s.id));
+  const shown = seenIds();
   const fresh = new Set(live.ids.slice(0, PAGE_SIZE).filter((id) => !shown.has(id)));
   view.setAttribute("aria-busy", "true");
   try {

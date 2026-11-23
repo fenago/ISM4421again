@@ -59,7 +59,7 @@ function copy(from, to, doc, depth, ctx) {
     const tag = node.tagName.toUpperCase();
     if (node.namespaceURI !== "http://www.w3.org/1999/xhtml" || DROP_WITH_CONTENT.has(tag)) continue;
     if (depth >= MAX_DEPTH) { // flatten: keep text only
-      to.appendChild(doc.createTextNode(node.textContent));
+      to.appendChild(doc.createTextNode(plainText(node)));
       continue;
     }
     if (!ALLOWED_TAGS.has(tag)) { // unknown/formatting tag: unwrap, keep (sanitized) children
@@ -84,6 +84,16 @@ function copy(from, to, doc, depth, ctx) {
     if (tag !== "BR") copy(node, el, doc, depth + 1, ctx);
     to.appendChild(el);
   }
+}
+
+// Text of a subtree WITHOUT the content of dropped elements (script/style/svg/...), used when flattening deep nesting.
+function plainText(node) {
+  let out = "";
+  for (const n of node.childNodes) {
+    if (n.nodeType === 3) out += n.data;
+    else if (n.nodeType === 1 && n.namespaceURI === "http://www.w3.org/1999/xhtml" && !DROP_WITH_CONTENT.has(n.tagName.toUpperCase())) out += plainText(n);
+  }
+  return out;
 }
 
 // Decode HTML entities for plain-text display. Output is TEXT: never assign it to innerHTML.

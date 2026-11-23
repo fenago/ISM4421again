@@ -10,6 +10,7 @@
     --accent: #2dd4bf; --accent-contrast: #062b27; --border: #2a3038; --chip: #222831; --badge: #13312d; --pill: #2dd4bf; }
 }
 * { box-sizing: border-box; }
+[hidden] { display: none !important; } /* author display rules (e.g. .live-pill, .topics) must not defeat the hidden attribute */
 html, body { margin: 0; background: var(--bg); color: var(--text); }
 body { line-height: 1.45; font-size: 16px; }
 a { color: var(--accent); }

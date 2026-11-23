@@ -180,6 +180,11 @@ describe("fetchFeed", () => {
     assert.equal(itemCalls.length, 30, "only page-sized slice fetched, not all 500");
     assert.ok(state.log.every(u => u.endsWith(".json")), "every URL ends in .json");
   });
+  test("page exposes ALL upstream ids incl. dropped ones (the live pill must not count them as new)", async () => {
+    const p = await fetchFeed("top", 0);
+    assert.deepEqual(p.ids, state.lists.topstories.slice(0, 30));
+    assert.ok(p.ids.includes(id(6)) && !p.stories.some(s => s.id === id(6)));
+  });
   test("page 1: remaining 5 ids, ranks 31..35, hasMore false", async () => {
     const p = await fetchFeed("top", 1);
     assert.deepEqual(p.stories.map(s => s.rank), [31, 32, 33, 34, 35]);

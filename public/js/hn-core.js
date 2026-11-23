@@ -41,6 +41,7 @@
  * @property {number} total ids in the upstream list
  * @property {boolean} hasMore
  * @property {Story[]} stories
+ * @property {number[]} ids every id on this page of the upstream list, INCLUDING ones dropped as null/dead/etc.
  * @property {string} fetchedAt ISO timestamp
  * @property {number} [skipped] items dropped (null/deleted/dead/untitled/failed) from this page
  * @property {boolean} [partial] true if some item fetches failed or the deadline hit
@@ -210,7 +211,7 @@ export async function fetchFeed(feed = "top", page = 0, { concurrency = 12, dead
   /** @type {FeedPage} */
   const out = {
     feed, page, total: ids.length, hasMore: start + PAGE_SIZE < ids.length,
-    stories, fetchedAt: new Date().toISOString(),
+    stories, ids: slice, fetchedAt: new Date().toISOString(),
   };
   out.skipped = slice.length - stories.length;
   if (failures) out.partial = true;
